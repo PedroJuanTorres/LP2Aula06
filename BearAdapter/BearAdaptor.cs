@@ -19,7 +19,7 @@ namespace BearAdapter
             bear.GoTowards(objectToFetch);
             if(bear.TryEat(objectToFetch))
             {
-                Console.WriteLine($"The bear ate {objectToFetch}");
+                Console.WriteLine($"The bear ate the {objectToFetch}");
             }
             else
             {

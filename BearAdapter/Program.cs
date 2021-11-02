@@ -9,7 +9,7 @@ namespace BearAdapter
             // Create a german shepherd and dog-adapted gray wolf
             IDog dog1 = new GermanShepherd();
             IDog dog2 = new WolfAdapter(new GrayWolf());
-            IDog bear1 = new BearAdaptor(new BrownBear(true));
+            IDog dog3 = new BearAdaptor(new BrownBear(false));
 
             // Run dog methods on the german shepherd
             Console.WriteLine($"== Dog 1 ({dog1.GetType().Name}) ==");
@@ -25,8 +25,9 @@ namespace BearAdapter
 
             Console.WriteLine();
 
-            bear1.Bark();
-            bear1.Fetch("rabbit");
+            Console.WriteLine($"== Dog 3 ({dog3.GetType().Name}) ==");
+            dog3.Bark();
+            dog3.Fetch("rabbit");
         }
     }
 }
