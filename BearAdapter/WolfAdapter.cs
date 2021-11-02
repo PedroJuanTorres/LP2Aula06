@@ -1,4 +1,4 @@
-﻿namespace AdapterTest
+﻿namespace BearAdapter
 {
     /// <summary>
     /// The adapter class always implements the interface it's trying to

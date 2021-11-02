@@ -1,4 +1,4 @@
-﻿namespace AdapterTest
+﻿namespace BearAdapter
 {
     public interface IDog
     {

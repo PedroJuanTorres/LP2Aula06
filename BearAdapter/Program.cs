@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdapterTest
+namespace BearAdapter
 {
     class Program
     {
@@ -9,6 +9,7 @@ namespace AdapterTest
             // Create a german shepherd and dog-adapted gray wolf
             IDog dog1 = new GermanShepherd();
             IDog dog2 = new WolfAdapter(new GrayWolf());
+            IDog bear1 = new BearAdaptor(new BrownBear(true));
 
             // Run dog methods on the german shepherd
             Console.WriteLine($"== Dog 1 ({dog1.GetType().Name}) ==");
@@ -23,6 +24,9 @@ namespace AdapterTest
             dog2.Fetch("rabbit");
 
             Console.WriteLine();
+
+            bear1.Bark();
+            bear1.Fetch("rabbit");
         }
     }
 }

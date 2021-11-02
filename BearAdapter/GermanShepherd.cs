@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AdapterTest
+namespace BearAdapter
 {
     public class GermanShepherd : IDog
     {
