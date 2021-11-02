@@ -73,15 +73,14 @@ namespace Descompressor
         // Comprimir um texto para dentro de um ficheiro
         private void Comprime()
         {
-
             // Linhas de texto inseridas pelo utilizador
             string line;
 
             // Criar um ficheiro em modo escrita
-            FileStream fs = new FileStream(
+            Stream fs = new FileStream(
                 ficheiro, FileMode.Create, FileAccess.Write);
             // Decorar o ficheiro com um compressor para o formato GZip
-            GZipStream gzs = new GZipStream(fs, CompressionLevel.Optimal);
+            Stream gzs = new GZipStream(fs, CompressionLevel.Optimal);
             // Adaptar o compressor para escrita em modo de texto
             StreamWriter sw = new StreamWriter(gzs);
 
@@ -102,8 +101,20 @@ namespace Descompressor
         // Descomprimir texto no ficheiro e mostrar no ecrã
         private void Descomprime()
         {
-            throw new NotImplementedException(
-                "Descompressão não implementada");
+            string line;
+            // Criar um ficheiro em modo leitura
+            Stream fs = new FileStream(
+                ficheiro, FileMode.Open, FileAccess.Read);
+            // Decorar o ficheiro com um compressor para o formato GZip
+            Stream gzs = new GZipStream(fs, CompressionMode.Decompress);
+            // Adaptar o compressor para escrita em modo de texto
+            StreamReader sr = new StreamReader(gzs);
+
+            while((line = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+            }
+            sr.Close();
         }
     }
 }
